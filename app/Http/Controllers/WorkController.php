@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 class WorkController extends Controller
@@ -69,7 +70,10 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        //
+        $works = Work::query();
+        $works->nices()->wherePivot('work_is', $work->id)->get();
+        Log::debug($work);
+        return view('works.show', compact('work'));
     }
 
     /**

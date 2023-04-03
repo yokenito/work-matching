@@ -1,10 +1,20 @@
 body{
-    margin: 20px;
+    margin: 0;
     padding: 0;
 }
 main{
     margin: 0 20px;
     padding: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.ma-0{
+    margin: 0;
+}
+.ma-0-aut{
+    margin: 0 auto;
 }
 .section-ttl{
     width: 300px;
@@ -16,6 +26,10 @@ main{
     margin-left: 10px;
     color: #817e7e;
 }
+.fz18{
+    font-size: 18px;
+}
+
 
 /* 新規依頼投稿 */
 .form-note{
@@ -24,17 +38,146 @@ main{
     color: red;
 }
 
+/* 一覧ページ */
+.category{
+    margin-top: 0;
+    padding-left: 7px;
+    border-left: 4px solid #005dc5;
+    margin-bottom: 10px;
+}
+.all-category{
+    padding-left: 12px;
+    margin-top: 6px;
+    font-weight: bold; 
+}
+.sub-category{
+    padding-left: 18px;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #565454;
+}
+
 /* 仕事一覧 */
 .work-card{
-    width: 80%;
+    width: 100%;
     border-style: solid;
     border-width: 1px;
-    background-color: #f6f6f9;
-    border-color: #AAAAFF #6666FF #4444FF #CCCCFF;
-    border-radius: 10px;
+    border-color: #d2d2d5;
     padding: 20px;
     position: relative;
 }
+.work-card:hover{
+    background-color: #dde3fa;
+}
+.work-card .work-card-link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.work-status{
+    background-color: #298cf5;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 70px;
+}
+.work-content{
+    margin-left: 10px;
+}
+.work-ttl-box{
+    padding: 10px 0;
+    color: #040b89;
+    width: 600px;
+}
+.work-ttl{
+    margin-bottom: 0;
+    overflow-wrap: normal;
+}
+.pro{
+    background-color: #f6ebf3;
+    border-radius: 3px;
+    color: #fb0255;
+    padding: 5px;
+    font-size: 10px;
+    height: 25px;
+    vertical-align: middle;
+    font-weight: bold;
+}
+.reward{
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #a20101fd;
+    font-weight: bold;
+    padding: 0;
+}
+.fwb{
+    font-weight: bold;
+}
+.proposal-num{
+    font-size: 25px;
+    font-weight: bold;
+    color: #311ff7;
+    padding: 3px;
+}
+.client-box{
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+    color: #817e7e;
+}
+
+/* 仕事詳細 */
+.show-tb{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.work-table td{
+    border: 1px solid #c3c3c3;
+    text-align: center;
+    padding: 15px;
+    width: 150px;
+}
+.work-table-tr{
+    height: 30px;
+    width: 640px;
+    background-color: #dcdcdc;
+}
+.work-table-tr td:first-child{
+    border-radius: 5px 0 0 0;
+}
+.work-table-tr td:last-child{
+    border-radius: 0 5px 0 0;
+}
+.pro-2{
+    background-color: #f6ebf3;
+    border-radius: 3px;
+    color: #fb0255;
+    padding: 5px;
+    font-size: 10px;
+    height: 25px;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+}
+.fc-red{
+    color: #a20101fd;
+}
+.fc-gray{
+    color: #848484;
+}
+.show-ttl{
+    border-bottom: 1px solid #bdbdbd;
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+
+
+
 
 /* いいねボタン */
 .nicebtn-button{
@@ -53,12 +196,12 @@ main{
     color: #5d5b5b;
     border-radius: 5px;
     padding: 5px;
-    background-color: #f6f6f9;
+    background-color: #f7f5f5;
     font-size: 15px;
 }
 .nice{
     border: none;
-    background-color: #f6f6f9;
+    background-color: #f7f5f5;
     font-size: 15px;
     color: #5d5b5b;
 }
@@ -68,4 +211,8 @@ main{
 }
 .nicebtn.active span{
     color: yellow;
+}
+.unnicebtn-unlogin{
+    text-decoration: none;
+    color: #000;
 }

@@ -14,6 +14,7 @@ class Work extends Model
     }
 
     public function nices(){
-        return $this->belongsToMany(User::class,'nices')->withTimestamps();
+        return $this->belongsToMany(User::class,'nices')
+            ->withTimestamps()->withPivot('work_id');
     }
 }

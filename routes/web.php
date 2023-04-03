@@ -26,6 +26,7 @@ Route::prefix('works')->group(function(){
     Route::get('index',[WorkController::class, 'index'])->name('works.index');
     Route::get('create',[WorkController::class, 'create'])->name('works.create')->middleware('auth');
     Route::post('store',[WorkController::class, 'store'])->name('works.store')->middleware('auth');
+    Route::get('shoe/{work}',[WorkController::class, 'show'])->name('works.show')->middleware('auth');
     Route::get('edit',[WorkController::class, 'edit'])->name('works.edit')->middleware('auth');
     Route::patch('update',[WorkController::class, 'update'])->name('works.update')->middleware('auth');
     Route::delete('destroy',[WorkController::class, 'destroy'])->name('works.update')->middleware('auth');
