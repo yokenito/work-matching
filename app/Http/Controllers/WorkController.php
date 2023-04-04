@@ -70,10 +70,11 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        $works = Work::query();
-        $works->nices()->wherePivot('work_is', $work->id)->get();
-        Log::debug($work);
-        return view('works.show', compact('work'));
+        $works = Work::find($work->id);
+        $works=$works->nices()->wherePivot('work_id', $work->id)->get();
+        $favorite_count = count($works);
+        $user = Auth::user();
+        return view('works.show', compact('work','favorite_count','user'));
     }
 
     /**

@@ -26,6 +26,19 @@ p {
     margin-left: 10px;
     color: #817e7e;
 }
+.hed-logout-button{
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: #ccc;
+}
+.hed-logout{
+    border: none;
+    background-color: #fff;
+    color: #817e7e;
+}
 .fz18{
     font-size: 18px;
 }

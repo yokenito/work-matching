@@ -31,9 +31,33 @@
                 </td>
                 <td>
                     <p class="fc-gray ma-0"><span>★</span>お気に入り</p>
-                    <p class="fwb fz18 ma-0">人</p>
+                    <p class="fwb fz18 ma-0">{{$favorite_count}}人</p>
                 </td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <th>依頼内容</th>
+                <td>{{$work->content}}</td>
+            </tr>
+            <tr>
+                <th>追記</th>
+                <td>追記事項なし</td>
+            </tr>
+            <tr>
+                <th>添付ファイル</th>
+                <td>取引成立後閲覧可能です</td>
+            </tr>
+        </table>
+        <a href="" class="btn btn-primary">提案する</a>
+        @if($user->isNice($work->id))
+            <button onclick="nice({{$work->id}}, this)" class="nicebtn active">
+                <span class="nice">★</span>お気に入り
+            </button>
+        @else
+            <button onclick="nice({{$work->id}}, this)" class="nicebtn">
+                <span class="nice">★</span>お気に入り
+            </button>
+        @endif
     </main>
 @endsection

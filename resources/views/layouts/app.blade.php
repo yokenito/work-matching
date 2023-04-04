@@ -57,7 +57,10 @@
                                 <a href="#" class="hed-link">提案</a>
                                 <a href="#" class="hed-link">お気に入り</a>
                                 <a href="{{route('works.create')}}" class="hed-link">新規投稿</a>
-                                <a href="#" class="hed-link">ログアウト</a>
+                                <form action="{{route('logout')}}" class="hed-link" method="post">
+                                    @csrf
+                                    <button class="hed-logout">ログアウト</button>
+                                </form>
                             </nav>
                         @endguest
                     </ul>
