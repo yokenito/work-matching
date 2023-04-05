@@ -186,9 +186,32 @@ p {
 .show-ttl{
     border-bottom: 1px solid #bdbdbd;
     padding: 5px 0;
+    padding-bottom: 8px;
     margin-bottom: 10px;
+    width: 90%;
 }
-
+.showcontent-table{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.showcontent-table th{
+    width: 150px;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 16px;
+}
+.showcontent-table td{
+    padding-bottom: 40px;
+    padding-top: 5px;
+    width: 600px;
+}
+.showcontent-table tr{
+    border-bottom: 1px dotted #696969;
+}
+.proposal-btn{
+    width: 250px;
+    margin-top: 20px;
+}
 
 
 
