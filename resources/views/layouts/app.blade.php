@@ -12,6 +12,9 @@
     <!-- css -->
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -54,7 +57,7 @@
                             @endif
                         @else
                             <nav class="navbar">
-                                <a href="#" class="hed-link">提案</a>
+                                <a href="{{route('proposals.index')}}" class="hed-link">提案</a>
                                 <a href="#" class="hed-link">お気に入り</a>
                                 <a href="{{route('works.create')}}" class="hed-link">新規投稿</a>
                                 <form action="{{route('logout')}}" class="hed-link" method="post">

@@ -90,6 +90,15 @@ p {
     width: 100%;
     height: 100%;
 }
+.work-card-2{
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d2d2d5;
+    padding: 10px;
+    position: relative;
+}
+
 .work-status{
     background-color: #298cf5;
     border-radius: 10px;
@@ -103,6 +112,11 @@ p {
 }
 .work-ttl-box{
     padding: 10px 0;
+    color: #040b89;
+    width: 600px;
+}
+.work-ttl-box-2{
+    padding: 5px 0;
     color: #040b89;
     width: 600px;
 }
@@ -211,6 +225,111 @@ p {
 .proposal-btn{
     width: 250px;
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+.proposal-btn-box{
+    text-align: center;
+}
+
+.client-ttl{
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+.client-img{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.client-img-box{
+    text-align: center;
+}
+.showclient-box{
+    border: 1px solid #c0c0c0;
+    padding: 20px 0;
+}
+.client-name{
+    text-align: center;
+    margin: 5px 0;
+}
+.client-confirm-box{
+    margin-top: 20px;
+}
+.check-img{
+    width: 30px;
+    height: auto;
+    margin-left: 30px;
+}
+.check-img-black{
+    width: 25px;
+    height: auto;
+    margin-left: 32px;
+}
+
+.message-box{
+    border: 1px solid #c0c0c0;
+    border-top: none;
+    text-align: center;
+}
+.message{
+    padding: 10px;
+    margin: 0;
+    color: #000d84;
+}
+
+/* 提案一覧 */
+.home-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.home-list li{
+    width: 90%;
+    color: #404040;
+    border-left: solid 6px #3d52f4;/*左側の線*/
+    border-bottom: solid 2px #dadada;/*下に灰色線*/
+    background: whitesmoke;
+    margin-bottom: 5px;/*下のバーとの余白*/
+    line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;/*ポチ消す*/
+    font-weight: bold;
+    font-size: 25px;
+    margin: 25px 0;
+    padding-left: 40px;
+}
+.home-list li:before {
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f138";/*アイコンの種類*/
+    position: absolute;
+    left : 3.3em;/*左端からのアイコンまでの距離*/
+    color: rgb(177, 179, 182);/*アイコン色*/
+}
+
+/* 受付中の提案一覧 */
+.reception-date{
+    font-weight: bold;
+    color: #311ff7;
+    padding: 3px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.prpposer-img{
+    width: 85px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.prpposer-img-box{
+    text-align: center;
+}
+.decision-btn{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
 
 

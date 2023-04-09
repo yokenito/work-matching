@@ -52,19 +52,46 @@
                             <td>取引成立後閲覧可能です</td>
                         </tr>
                     </table>
-                    <a href="" class="btn btn-primary proposal-btn">提案する</a>
+                    <div class="proposal-btn-box">
+                        <a href="{{route('proposals.create',$work)}}" class="btn btn-primary proposal-btn">提案する</a>
+                    </div>
                 </div>
                 <div class="col-3">
-                    <p>クライアント</p>
-                    <div>
-                        <div>
-                            <img src="{{asset('/img/work-matching-img.jpeg')}}" alt="">
+                    <p class="client-ttl">クライアント</p>
+                    <div class="showclient-box">
+                        <div class="client-img-box">
+                            <img class="client-img" src="{{asset('/img/work-matching-img.jpeg')}}" alt="">
                         </div>
+                        <div>
+                            <p class="client-name">{{$work->client->name}}</p>
+                        </div>
+                        <div class="client-confirm-box">
+                            <div class="d-flex">
+                                <div>
+                                    <img class="check-img" src="{{asset('/img/check_blue.png')}}" alt="">
+                                </div>
+                                <p class="ms-1">本人確認</p>
+                            </div>
+                            <div class="d-flex">
+                                <div>
+                                    <img class="check-img-black" src="{{asset('/img/check_black.png')}}" alt="">
+                                </div>
+                                <p class="ms-1">秘密保持確認</p>
+                            </div>
+                            <div class="d-flex">
+                                <div>
+                                    <img class="check-img" src="{{asset('/img/check_blue.png')}}" alt="">
+                                </div>
+                                <p class="ms-1">電話確認</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <p class="message">メッセージを送る</p>
                     </div>
                 </div>
             </div>
         </div>
         
-    
     </main>
 @endsection

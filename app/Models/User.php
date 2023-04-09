@@ -45,6 +45,9 @@ class User extends Authenticatable
     public function works(){
         return $this->hasMany(Work::class);
     }
+    public function proposals(){
+        return $this->hasMany(Proposal::class);
+    }
 
     // お気に入り用
     public function nices(){

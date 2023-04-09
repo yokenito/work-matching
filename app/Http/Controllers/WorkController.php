@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Work;
+use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -73,7 +74,9 @@ class WorkController extends Controller
         $works = Work::find($work->id);
         $works=$works->nices()->wherePivot('work_id', $work->id)->get();
         $favorite_count = count($works);
+
         $user = Auth::user();
+
         return view('works.show', compact('work','favorite_count','user'));
     }
 
