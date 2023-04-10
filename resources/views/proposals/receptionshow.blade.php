@@ -31,14 +31,14 @@
                             <p class="fwb ma-0">提案日：<span class="reception-date">{{$proposal->updated_at->format('Y/m/d')}}</span></p>
                         </div>
                         @if($proposal->status == 0)
-                            <form action="#" method="post">
+                            <form action="{{route('proposals.transactionconfirm',$proposal)}}" method="post">
                                 @csrf
                                 <button class="btn btn-outline-info decision-btn">取引確定</button>
                             </form>
                         @elseif($proposal->status == 1)
-                            <a href="#" class="btn btn-outline-primary decision-btn">詳細</a>
+                            <a href="#" class="btn btn-outline-primary decision-btn">チャット</a>
                         @elseif($proposal->status == 2)
-                            <button class="btn btn-outline-secondary decision-btn">募集終了
+                            <button class="btn btn-outline-secondary decision-btn" disabled>募集終了</button>
                         @endif
                     </div>
                     

@@ -43,4 +43,5 @@ Route::prefix('proposals')->group(function(){
     Route::get('create/{work}',[ProposalController::class, 'create'])->name('proposals.create')->middleware('auth');
     Route::post('store/{work}',[ProposalController::class, 'store'])->name('proposals.store')->middleware('auth');
     Route::get('receptionshow/{work}',[Proposalcontroller::class, 'receptionshow'])->name('proposals.receptionshow')->middleware('auth');
+    Route::post('transactionconfirm/{proposal}',[Proposalcontroller::class, 'transactionconfirm'])->name('proposals.transactionconfirm')->middleware('auth');
 });

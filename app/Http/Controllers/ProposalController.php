@@ -121,4 +121,22 @@ class ProposalController extends Controller
     {
         //
     }
+
+    public function transactionconfirm(Proposal $proposal)
+    {
+        $proposal->status = 1;
+        $proposal->save();
+
+        $work_id = $proposal->work_id;
+        $proposals = Proposal::where('work_id','=', $work_id)->get();
+        foreach($proposals as $proposal){
+            if($proposal->status == 1){
+                continue;
+            }
+            $proposal->status = 2;
+            $proposal->save();
+        }
+
+        return redirect()->route('proposals.receptionshow',['work' => $work_id]);
+    }
 }
