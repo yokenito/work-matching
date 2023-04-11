@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\ProposalController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,8 @@ Route::prefix('proposals')->group(function(){
     Route::post('store/{work}',[ProposalController::class, 'store'])->name('proposals.store')->middleware('auth');
     Route::get('receptionshow/{work}',[Proposalcontroller::class, 'receptionshow'])->name('proposals.receptionshow')->middleware('auth');
     Route::post('transactionconfirm/{proposal}',[Proposalcontroller::class, 'transactionconfirm'])->name('proposals.transactionconfirm')->middleware('auth');
+});
+
+Route::prefix('chats')->group(function(){
+    Route::get('index/{proposal}',[ChatController::class,'index'])->name('chats.index')->middleware('auth');
 });

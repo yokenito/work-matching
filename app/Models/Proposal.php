@@ -15,4 +15,8 @@ class Proposal extends Model
     public function work(){
         return $this->belongsTo(Work::class);
     }
+
+    public function chats(){
+        return $this->hasMany(Chat::class);
+    }
 }

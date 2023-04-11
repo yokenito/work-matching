@@ -36,7 +36,7 @@
                                 <button class="btn btn-outline-info decision-btn">取引確定</button>
                             </form>
                         @elseif($proposal->status == 1)
-                            <a href="#" class="btn btn-outline-primary decision-btn">チャット</a>
+                            <a href="{{route('chats.index',$proposal)}}" class="btn btn-outline-primary decision-btn">チャット</a>
                         @elseif($proposal->status == 2)
                             <button class="btn btn-outline-secondary decision-btn" disabled>募集終了</button>
                         @endif
