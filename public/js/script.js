@@ -21,3 +21,26 @@ function nice(work_id, elm){
             console.log('失敗');
         });
 }
+
+function sendmessage(proposal_id){
+    console.log("functiontest");
+    var url = `/sample-app-work-matching/public/chats/sendmessage/${proposal_id}`;
+    var send_message = $('#bms_send_message').val();
+
+    $.ajax({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        url: url,
+        type: "POST",
+        data:{
+            "send_message" : send_message
+        }
+    })
+        .done(function(data){
+            window.location.reload();
+        })
+        .fail(function(jqXHR, textStatus, errorThrown){
+            console.log('失敗');
+        });
+}

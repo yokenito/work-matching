@@ -44,7 +44,10 @@
                 <!-- テキストボックス、送信ボタン④ -->
                 <div id="bms_send">
                     <textarea id="bms_send_message"></textarea>
-                    <div id="bms_send_btn">送信</div>
+                    <button onclick="sendmessage({{$proposal->id}})" id="bms_send_btn">
+                        送信
+                    </button>
+                    
                 </div>
             </div>
         </div>

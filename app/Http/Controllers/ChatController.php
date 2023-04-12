@@ -18,7 +18,7 @@ class ChatController extends Controller
     {
         $chats = Chat::where('proposal_id','=',$proposal->id)->get();
         $user_id = Auth::id();
-        return view('chats.index', compact('chats','user_id'));
+        return view('chats.index', compact('chats','user_id','proposal'));
     }
 
     /**
@@ -85,5 +85,16 @@ class ChatController extends Controller
     public function destroy(Chat $chat)
     {
         //
+    }
+
+    public function sendmessage($proposal_id){
+        if($_POST['send_message'] != null){
+            $chat = new Chat();
+            $chat->proposal_id = $proposal_id;
+            $chat->user_id = Auth::id();
+            $chat->message = $_POST['send_message'];
+            $chat->save();
+        }
+        return;
     }
 }
