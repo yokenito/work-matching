@@ -41,7 +41,7 @@
                     <table class="showcontent-table">
                         <tr>
                             <th>依頼内容</th>
-                            <td>{{$work->content}}</td>
+                            <td>{!! nl2br($work->content) !!}</td>
                         </tr>
                         <tr>
                             <th>追記</th>

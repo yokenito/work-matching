@@ -37,6 +37,7 @@
                             </form>
                         @elseif($proposal->status == 1)
                             <a href="{{route('chats.index',$proposal)}}" class="btn btn-outline-primary decision-btn">チャット</a>
+                            <a href="{{route('chats.index2',$proposal)}}" class="btn btn-outline-primary">チャット2</a>
                         @elseif($proposal->status == 2)
                             <button class="btn btn-outline-secondary decision-btn" disabled>募集終了</button>
                         @endif

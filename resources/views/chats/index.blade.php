@@ -22,7 +22,7 @@
                         <div class="bms_message bms_left">
                             <div class="bms_message_box">
                                 <div class="bms_message_content">
-                                    <div class="bms_message_text">{{$chat->message}}</div>
+                                    <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="bms_message bms_right">
                             <div class="bms_message_box">
                                 <div class="bms_message_content">
-                                    <div class="bms_message_text">{{$chat->message}}</div>
+                                    <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
                                 </div>
                             </div>
                         </div>

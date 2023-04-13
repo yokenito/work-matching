@@ -20,6 +20,14 @@ class ChatController extends Controller
         $user_id = Auth::id();
         return view('chats.index', compact('chats','user_id','proposal'));
     }
+    public function index2(Proposal $proposal)
+    {
+        $chats = Chat::where('proposal_id','=',$proposal->id)->get();
+        $user_id = Auth::id();
+        $chat_count = $chats->count();
+        $count = 0;
+        return view('chats.index2', compact('chats','user_id','proposal','chat_count','count'));
+    }
 
     /**
      * Show the form for creating a new resource.

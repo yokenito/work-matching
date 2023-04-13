@@ -133,6 +133,7 @@ p {
     text-align: center;
     padding: 10px;
     height: 70px;
+    width: 90px;
 }
 .work-content{
     margin-left: 10px;
@@ -408,7 +409,7 @@ p {
     bms_messages_containerの方で、縦横いっぱいに広がってくれるので、
     ここで充てた高さと横幅がそのままスタイルになる仕組み */
 
-    height: 600px;/*ここはご自由に*/
+    height: 500px;/*ここはご自由に*/
     width: 100%;/*ここはご自由に*/
 }
 /* チャットの外側部分① */
@@ -445,7 +446,7 @@ p {
 /* タイムライン部分③ */
 #bms_messages {
     overflow: auto;/* スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする */
-    height: 600px;/*テキストエリアが下に張り付く様にする*/
+    height: 500px;/*テキストエリアが下に張り付く様にする*/
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
     background-color: #eee;
