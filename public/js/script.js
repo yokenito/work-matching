@@ -44,3 +44,6 @@ function sendmessage(proposal_id){
             console.log('失敗');
         });
 }
+
+let target = document.getElementById('scroll');
+target.scrollIntoView(false);

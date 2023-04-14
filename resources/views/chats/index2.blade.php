@@ -16,60 +16,61 @@
 
                 <!-- タイムライン部分③ -->
                 <div id="bms_messages">
-                    @if($chat_count <= 10)
-                        @foreach($chats as $chat)
-                        @if($chat->user_id != $user_id)
-                            <!--メッセージ１（左側）-->
-                            <div class="bms_message bms_left">
-                                <div class="bms_message_box">
-                                    <div class="bms_message_content">
-                                        <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
+                    <div id="scroll">
+                        @if($chat_count <= 10)
+                            @foreach($chats as $chat)
+                            @if($chat->user_id != $user_id)
+                                <!--メッセージ１（左側）-->
+                                <div class="bms_message bms_left">
+                                    <div class="bms_message_box">
+                                        <div class="bms_message_content">
+                                            <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-                        @elseif($chat->user_id == $user_id)
-                            <!--メッセージ２（右側）-->
-                            <div class="bms_message bms_right">
-                                <div class="bms_message_box">
-                                    <div class="bms_message_content">
-                                        <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
+                                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            @elseif($chat->user_id == $user_id)
+                                <!--メッセージ２（右側）-->
+                                <div class="bms_message bms_right">
+                                    <div class="bms_message_box">
+                                        <div class="bms_message_content">
+                                            <div class="bms_message_text">{!! nl2br($chat->message) !!}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+                                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            @endif
+                            @endforeach
+                        @else
+                            @foreach($chats as $chat)
+                            @if($count < $chat_count-10)
+                                <?php $count++; ?>
+                                @continue
+                            @endif
+                            @if($chat->user_id != $user_id)
+                                <!--メッセージ１（左側）-->
+                                <div class="bms_message bms_left">
+                                    <div class="bms_message_box">
+                                        <div class="bms_message_content">
+                                            <div class="bms_message_text">{{$chat->message}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            @elseif($chat->user_id == $user_id)
+                                <!--メッセージ２（右側）-->
+                                <div class="bms_message bms_right">
+                                    <div class="bms_message_box">
+                                        <div class="bms_message_content">
+                                            <div class="bms_message_text">{{$chat->message}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            @endif
+                            @endforeach
                         @endif
-                        @endforeach
-                    @else
-                        @foreach($chats as $chat)
-                        @if($count < $chat_count-10)
-                            <?php $count++; ?>
-                            @continue
-                        @endif
-                        @if($chat->user_id != $user_id)
-                            <!--メッセージ１（左側）-->
-                            <div class="bms_message bms_left">
-                                <div class="bms_message_box">
-                                    <div class="bms_message_content">
-                                        <div class="bms_message_text">{{$chat->message}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-                        @elseif($chat->user_id == $user_id)
-                            <!--メッセージ２（右側）-->
-                            <div class="bms_message bms_right">
-                                <div class="bms_message_box">
-                                    <div class="bms_message_content">
-                                        <div class="bms_message_text">{{$chat->message}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-                        @endif
-                        @endforeach
-                    @endif
-
+                    </div>
                 </div>
 
                 <!-- テキストボックス、送信ボタン④ -->
