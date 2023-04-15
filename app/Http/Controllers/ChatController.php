@@ -16,17 +16,18 @@ class ChatController extends Controller
      */
     public function index(Proposal $proposal)
     {
-        $chats = Chat::where('proposal_id','=',$proposal->id)->get();
+        // $chats = Chat::where('proposal_id','=',$proposal->id)->orderByDesc('id')->limit(10)->oldest()->get();
+        // ←取得した後にひっくり返せなかった（array_reverse等使えず）
+        $chat_count = Chat::select('id')->where('proposal_id','=',$proposal->id)->get();
+        $count = $chat_count->count();
+        if($count > 10){
+            $start_offset = $count -10;
+            $chats = Chat::where('proposal_id','=',$proposal->id)->offset($start_offset)->limit(10)->get();
+        }else{
+            $chats = Chat::where('proposal_id','=',$proposal->id)->get();
+        }
         $user_id = Auth::id();
         return view('chats.index', compact('chats','user_id','proposal'));
-    }
-    public function index2(Proposal $proposal)
-    {
-        $chats = Chat::where('proposal_id','=',$proposal->id)->get();
-        $user_id = Auth::id();
-        $chat_count = $chats->count();
-        $count = 0;
-        return view('chats.index2', compact('chats','user_id','proposal','chat_count','count'));
     }
 
     /**
@@ -103,6 +104,20 @@ class ChatController extends Controller
             $chat->message = $_POST['send_message'];
             $chat->save();
         }
-        return;
+        return ;
+    }
+    public function addindex($add_count)
+    {
+        $chat_count = Chat::select('id')->where('proposal_id','=',$proposal->id)->get();
+        $count = $chat_count->count();
+        if($count > 10*($add_count+1)){
+            $start_offset = $count -10*($add_count+1);
+            $chats = Chat::where('proposal_id','=',$proposal->id)->offset($start_offset)->limit(10)->get();
+        }else{
+            $limit_count = $count -10*($add_count+1);
+            $chats = Chat::where('proposal_id','=',$proposal->id)->limit($limit_count)->get();
+        }
+        
+        return response()->json($chats);
     }
 }

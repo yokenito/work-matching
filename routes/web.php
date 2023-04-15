@@ -49,7 +49,6 @@ Route::prefix('proposals')->group(function(){
 
 Route::prefix('chats')->group(function(){
     Route::get('index/{proposal}',[ChatController::class,'index'])->name('chats.index')->middleware('auth');
-    Route::get('index2/{proposal}',[ChatController::class,'index2'])->name('chats.index2')->middleware('auth');
 
     Route::post('sendmessage/{proposal}',[ChatController::class,'sendmessage'])->name('chats.sendmessage')->middleware('auth');
 });
