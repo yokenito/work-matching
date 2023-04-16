@@ -6,6 +6,7 @@ use App\Models\Chat;
 use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ChatController extends Controller
 {
@@ -106,18 +107,11 @@ class ChatController extends Controller
         }
         return ;
     }
-    public function addindex($add_count)
-    {
-        $chat_count = Chat::select('id')->where('proposal_id','=',$proposal->id)->get();
-        $count = $chat_count->count();
-        if($count > 10*($add_count+1)){
-            $start_offset = $count -10*($add_count+1);
-            $chats = Chat::where('proposal_id','=',$proposal->id)->offset($start_offset)->limit(10)->get();
-        }else{
-            $limit_count = $count -10*($add_count+1);
-            $chats = Chat::where('proposal_id','=',$proposal->id)->limit($limit_count)->get();
-        }
+    
+    public function addchats($proposal_id){
+        $chats = Chat::where('proposal_id','=',$proposal_id)->orderByDesc('id')->offset($_POST['add_count']*10)->limit(10)->oldest()->get();
+        $user_id = Auth::id();
         
-        return response()->json($chats);
+        return ["chats"=>response()->json($chats), "user_id"=>$user_id];
     }
 }

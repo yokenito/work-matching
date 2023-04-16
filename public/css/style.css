@@ -562,3 +562,22 @@ p {
     margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
 }
 
+.reroad-img{
+    width: 40px;
+    height: auto;
+}
+.reroad-img-box{
+    text-align: center;   
+}
+.reroad-btn-button{
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: #ccc;
+}
+.reroad-btn{
+    border: none;
+    margin-top: 3px;
+}

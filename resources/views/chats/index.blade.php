@@ -16,6 +16,12 @@
 
                 <!-- タイムライン部分③ -->
                 <div id="bms_messages">
+                    <div class="reroad-img-box">
+                        <button class="reroad-btn" id="reroad-btn">
+                            <img onclick="reroad({{$proposal->id}})" class="reroad-img" src="{{asset('/img/reroad.png')}}" alt="リロード">
+                        </button>
+                    </div>
+                    <div id="addindex"></div>
                     <div id="scroll">
                         @foreach($chats as $chat)
                         @if($chat->user_id != $user_id)
