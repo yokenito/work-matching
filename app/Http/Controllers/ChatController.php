@@ -17,16 +17,17 @@ class ChatController extends Controller
      */
     public function index(Proposal $proposal)
     {
-        // $chats = Chat::where('proposal_id','=',$proposal->id)->orderByDesc('id')->limit(10)->oldest()->get();
-        // ←取得した後にひっくり返せなかった（array_reverse等使えず）
-        $chat_count = Chat::select('id')->where('proposal_id','=',$proposal->id)->get();
-        $count = $chat_count->count();
-        if($count > 10){
-            $start_offset = $count -10;
-            $chats = Chat::where('proposal_id','=',$proposal->id)->offset($start_offset)->limit(10)->get();
-        }else{
-            $chats = Chat::where('proposal_id','=',$proposal->id)->get();
-        }
+        $chats = Chat::where('proposal_id','=',$proposal->id)->orderByDesc('id')->limit(10)->oldest()->get();
+        $chats = $chats->reverse();
+        
+        // $chat_count = Chat::select('id')->where('proposal_id','=',$proposal->id)->get();
+        // $count = $chat_count->count();
+        // if($count > 10){
+        //     $start_offset = $count -10;
+        //     $chats = Chat::where('proposal_id','=',$proposal->id)->offset($start_offset)->limit(10)->get();
+        // }else{
+        //     $chats = Chat::where('proposal_id','=',$proposal->id)->get();
+        // }
         $user_id = Auth::id();
         return view('chats.index', compact('chats','user_id','proposal'));
     }

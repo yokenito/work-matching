@@ -68,7 +68,7 @@ function sendmessage(proposal_id){
         });
 }
 
-// チャットをデフォルト位置を下部に
+// チャットのデフォルト位置を下部に
 let target = document.getElementById('scroll');
 target.scrollIntoView(false);
 
@@ -99,7 +99,7 @@ function reroad(proposal_id){
         }
     })
         .done(function(data){
-            console.log(data);
+            // console.log(data);
             for(i=0; i < data['chats'].original.length; i++){
                 if(data['chats'].original[i].user_id != data['user_id']){
                     $('#addindex').prepend(
@@ -137,11 +137,12 @@ function reroad(proposal_id){
             if(data['chats'].original.length == 10){
                 let move_top = $('.bms_message_text:eq(8)').offset().top;
                 $('#bms_messages').scrollTop(move_top);
-            }
-                // let eq_num = data['chats'].original-2; 
-                // let move_top = $('.bms_message_text:eq(eq_num)').offset().top;
+            } else if(data['chats'].original != null){
+                let eq_num = data['chats'].original.length-2; 
+                let move_top = $('.bms_message_text').eq(eq_num).offset().top;
                 // console.log(move_top);
-                // $('#bms_messages').scrollTop(move_top);
+                $('#bms_messages').scrollTop(move_top);
+            }
             
             if(data['chats'].original.length < 10){
                 $('#reroad-btn').css('display','none');
