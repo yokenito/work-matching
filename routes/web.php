@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ChatAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +52,11 @@ Route::prefix('chats')->group(function(){
     Route::get('index/{proposal}',[ChatController::class,'index'])->name('chats.index')->middleware('auth');
     Route::post('sendmessage/{proposal}',[ChatController::class,'sendmessage'])->name('chats.sendmessage')->middleware('auth');
     Route::post('addchats/{proposal}',[ChatController::class,'addchats'])->name('chats.addchats')->middleware('auth');
+});
+
+
+Route::prefix('chatsoket')->group(function(){
+    Route::get('index/{proposal}',[ChatAdminController::class,'index'])->name('chatsoket.index')->middleware('auth');
+    Route::get('api',[ChatAdminController::class,'list'])->name('chatsoket.list')->middleware('auth');
+    Route::post('api/create',[ChatAdminController::class,'create'])->name('chatsoket.create')->middleware('auth');
 });

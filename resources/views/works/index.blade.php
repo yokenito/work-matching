@@ -47,12 +47,16 @@
                             @endif
                             <div class="d-flex">
                                 <div class="work-status">
+                                    @if((strtotime($work->end_date)-strtotime(date("Y-m-d"))) > 0)
                                     <p>
                                         募集中<br>
                                         あと
                                         <?php echo ((strtotime($work->end_date)-strtotime(date("Y-m-d")))/86400) ?>    
                                         日
                                     </p>
+                                    @else
+                                    <p class="end-proposal">募集<br>終了</p>
+                                    @endif
                                 </div>
                                 <div class="work-content">
                                     <div class="work-ttl-box">
