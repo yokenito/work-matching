@@ -56,7 +56,7 @@ Route::prefix('chats')->group(function(){
 
 
 Route::prefix('chatsoket')->group(function(){
-    Route::get('index/{proposal}',[ChatAdminController::class,'index'])->name('chatsoket.index')->middleware('auth');
-    Route::get('api',[ChatAdminController::class,'list'])->name('chatsoket.list')->middleware('auth');
-    Route::post('api/create',[ChatAdminController::class,'create'])->name('chatsoket.create')->middleware('auth');
+    Route::get('index/{proposal}',[ChatAdminController::class,'index'])->name('chatsoket.index');
+    Route::get('api',[ChatAdminController::class,'list'])->name('chatsoket.list');
+    Route::post('api/create',[ChatAdminController::class,'create'])->name('chatsoket.create');
 });

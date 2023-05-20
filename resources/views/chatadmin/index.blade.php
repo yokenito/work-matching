@@ -53,5 +53,6 @@
                 </div>
             </div>
         </div>
+        <p id="my_id" style="display: none;">{{$user_id}}</p>
 
 @endsection

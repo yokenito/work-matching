@@ -1,24 +1,33 @@
-window.Echo.channel('chats-channel').listen('ChatCreated',function(data){
+window.onload=function(){window.Echo.channel('chats-channel').listen('ChatCreated',function(data){
     console.log('received a message');
     console.log(data);
-    let newmessage = data.message[0].message;
-    let user_id = data.message[1].user_id;
+    let newmessage = data.chat['message'];
+    let user_id = data.chat['user_id'];
     let message = document.querySelector('#scroll');
-    message.insertAdjacentHTML('beforeend',
-    `
-    <div class="bms_message bms_right">
-        <div class="bms_message_box">
-            <div class="bms_message_content">
-                <div class="bms_message_text">`
-    + nl2br(newmessage)
-    +`</div>
+    var my_id = document.getElementById('my_id').textContent;
+    console.log(newmessage);
+    console.log(user_id);
+    console.log(my_id);
+    if(my_id != user_id){
+        message.insertAdjacentHTML('beforeend',
+        `
+        <div class="bms_message bms_left">
+            <div class="bms_message_box">
+                <div class="bms_message_content">
+                    <div class="bms_message_text">`
+        + nl2br(newmessage)
+        +`</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="bms_clear"></div>
-    `
-    );
+        <div class="bms_clear"></div>
+        `
+        );
+        let target = document.getElementById('scroll');
+        target.scrollIntoView(false);
+    }
 });
+}
 
 
 function nl2br(str) {

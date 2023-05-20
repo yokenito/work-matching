@@ -28,6 +28,7 @@
                                     <p>取引成立</p>
                                 </div>
                                 <a href="{{route('chats.index',$proposal)}}" class="btn btn-outline-primary mt-3">チャット</a>
+                                <a href="{{route('chatsoket.index',$proposal)}}" class="btn btn-outline-primary mt-3">チャット(socket)</a>
                             </div>
                         @else
                             <div class="work-status">
